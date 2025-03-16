@@ -4,9 +4,39 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | English Comp Final</title>
+    <style>
+      body {
+        text-align: center;
+        padding: 0;
+        border: 0;
+        margin: 0;
+      }
+      #content {
+        padding: 20px;
+        margin-top: 20px;
+      }
+      #doc-link, #youtube-link {
+        font-size: 18px;
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+        display: block;
+        margin-top: 10px;
+      }
+    </style>
   </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width=1280 height=720 tabindex="-1" style="width: 1280px; height: 720px; background: #231F20"></canvas>
+  <body>
+    <canvas id="unity-canvas" width="1280" height="720" tabindex="-1" style="width: 1280px; height: 720px; background: #231F20"></canvas>
+    
+    <!-- Additional content section below the game -->
+    <div id="content">
+      <p>This is an interactive presentation where the choices you make have an effect on the outcome.</p>
+      <p>
+        You can download a DOCX file containing all text and dialogue from the presentation here:
+        <a href="/Final Presentation Text.docx" id="doc-link" target="_blank">Presentation Document</a>
+      </p>
+    </div>
+
     <script src="Build/WebGL.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
