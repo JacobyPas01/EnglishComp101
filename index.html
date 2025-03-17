@@ -3,57 +3,81 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity WebGL Player | English Comp Final</title>
     <style>
       body {
+        font-family: Arial, sans-serif;
         text-align: center;
         padding: 0;
-        border: 0;
         margin: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      #title-box {
+        background: #007BFF;
+        color: white;
+        padding: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 800px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      #unity-canvas {
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
       #content {
+        background: white;
         padding: 20px;
-        margin-top: 20px;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 800px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
-      #doc-link, #youtube-link {
+      a {
         font-size: 18px;
-        color: blue;
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      a:hover {
         text-decoration: underline;
-        cursor: pointer;
-        display: block;
-        margin-top: 10px;
       }
     </style>
   </head>
   <body>
-    <canvas id="unity-canvas" width="1280" height="720" tabindex="-1" style="width: 1280px; height: 720px; background: #231F20"></canvas>
+    <div id="title-box">English& 101 Final Presentation</div>
+    <canvas id="unity-canvas" width="1280" height="720" tabindex="-1" style="background: #231F20"></canvas>
     
-    <!-- Additional content section below the game -->
     <div id="content">
       <p>This is an interactive presentation where the choices you make have an effect on the outcome.</p>
       <p>
         You can download a DOCX file containing all text and dialogue from the presentation here:
-        <a href="/EnglishComp101/Final Presentation Text.docx" id="doc-link" target="_blank">Presentation Document</a>
+		<br>
+        <a href="/EnglishComp101/Final Presentation Text.docx" target="_blank">Download Document</a>
+      </p>
+      <p>
+        If you experience technical difficulties, you can watch a video version of the presentation here:
+		<br>
+        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank">Watch on YouTube</a>
       </p>
     </div>
-
+    
     <script src="Build/WebGL.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-
+        document.body.style.textAlign = "left";
         var canvas = document.querySelector("#unity-canvas");
         canvas.style.width = "100%";
-        canvas.style.height = "100%";
-        canvas.style.position = "fixed";
-
-        document.body.style.textAlign = "left";
+        canvas.style.height = "auto";
       }
-
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/WebGL.data",
         frameworkUrl: "Build/WebGL.framework.js",
@@ -62,8 +86,6 @@
         companyName: "DefaultCompany",
         productName: "English Comp Final",
         productVersion: "0.1",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
   </body>
